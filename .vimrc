@@ -124,7 +124,7 @@ call plug#begin('~/.vim/plugged')
 
   " Checkout branches and tags with fzf
   Plug 'stsewd/fzf-checkout.vim'
-  
+
   " Colorscheme for vim, terminal, vscode and slack - based on the star Rigel
   Plug 'Rigellute/rigel'
 
@@ -157,7 +157,10 @@ set cursorline              " set cursor line
 set autowriteall            " autosave files
 set background=dark         " dark colorscheme
 set completeopt-=preview    " Do not show preview window for ins-completion.
-set diffopt+=vertical       " split diffopt in vertical mode
+if &diff " split diffopt in vertical mode
+    set diffopt-=internal
+    set diffopt+=vertical
+endif
 set encoding=utf-8          " set the character encoding to UTF-8
 set expandtab               " convert tabs to the spaces
 set foldlevel=2             " sets the fold level
