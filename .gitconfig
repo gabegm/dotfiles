@@ -1,0 +1,39 @@
+[pull]
+	ff = only
+[http]
+	sslVerify = false
+[init]
+	defaultBranch = main
+[user]
+  name = gabegm
+  email = gabriel@gaucimaistre.com
+  signingkey = A84234DEC18BC989
+[core]
+  excludesfile = /Users/g9385/.gitignore_global
+  autocrlf = false
+  filemode = false
+  pager = delta
+[diff]
+  tool = vimdiff
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
+[mergetool "vimdiff"]
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[commit]
+  template = /Users/semanser/.stCommitMsg
+  gpgsign = false
+[gpg]
+  program = gpg
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+[push]
+  default = current
+
+[delta]
+  plus-color = "#012800"
+  minus-color = "#340001"
+  syntax-theme = Monokai Extended
+
+[interactive]
+  diffFilter = delta --color-only
