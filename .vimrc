@@ -142,7 +142,12 @@ call plug#end()
 " GENERAL {{{
 syntax enable                          " Enable syntax highlighting
 language en_US
-colorscheme rigel
+try
+  colorscheme rigel
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme default
+  set background=dark
+endtry
 let mapleader = "\<Space>"             " Setup leader key
 let macvim_skip_colorscheme=1
 " }}}
